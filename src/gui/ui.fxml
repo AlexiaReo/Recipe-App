@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
+
+    <Label text="Filter Recipes" />
+
+    <HBox spacing="10">
+        <ComboBox fx:id="cuisineFilter" promptText="Select Cuisine" />
+        <TextField fx:id="searchField" promptText="Enter search text" />
+        <Button text="Filter" onAction="#filterRecipes" />
+    </HBox>
+
+    <Label text="Find Recipe by Ingredients" />
+    <HBox spacing="10">
+        <TextField fx:id="ingredientsField" promptText="Enter ingredients (comma-separated)" />
+        <Button text="Find Recipe" onAction="#findRecipeByIngredients" />
+    </HBox>
+
+    <TableView fx:id="recipeTable" prefHeight="200" prefWidth="500">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="120"/>
+            <TableColumn fx:id="cuisineColumn" text="Cuisine" prefWidth="100"/>
+            <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="140"/>
+            <TableColumn fx:id="ingredientsColumn" text="Ingredients" prefWidth="140"/>
+        </columns>
+    </TableView>
+
+    <Label text="New Description:" />
+    <TextField fx:id="descriptionField" promptText="Enter new description" />
+    <Button text="Update Description" onAction="#updateDescription" />
+
+    <Label text="Add New Recipe" />
+    <GridPane hgap="10" vgap="10">
+        <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="newNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Cuisine:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="newCuisineField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Description:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="newDescriptionField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Ingredients:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="newIngredientsField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Button text="Add Recipe" GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#addRecipe"/>
+    </GridPane>
+
+    <Button text="Delete Recipe" onAction="#deleteRecipe"/>
+
+    <HBox spacing="10">
+        <Button text="Show All Recipes" onAction="#showAllRecipes"/>
+    </HBox>
+
+
+
+</VBox>
